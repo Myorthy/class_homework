@@ -16,23 +16,23 @@ def polska_nota():
         result = num_1 / num_2
 
     return result
-# print(polska_nota())
+print(polska_nota())
 
 
 
 # Задача 2
 
-# try:
-#      # print(polska_nota())
-#
-# except ValueError:
-#      print('Используемые значения противоречат заданным условиям')
-# except UnboundLocalError:
-#      print('Используется не корректная команда')
-# except ZeroDivisionError:
-#      print('На ноль делить нельзя!')
-# else:
-#     print('При выполнении кода исключений не обнаружено')
+try:
+     # print(polska_nota())
+
+except ValueError:
+     print('Используемые значения противоречат заданным условиям')
+except UnboundLocalError:
+     print('Используется не корректная команда')
+except ZeroDivisionError:
+     print('На ноль делить нельзя!')
+else:
+    print('При выполнении кода исключений не обнаружено')
 
 
 # Задача 3
