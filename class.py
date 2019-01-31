@@ -15,28 +15,35 @@ class Animal:
     def get_voice(self):
         print(self.voice)
 
+        
 class Bird(Animal):
     eggs_count = 0 # шт.
     eggs_limit = 1 # шт.
+    
     def egg_collection(self, eggs):
         if eggs > self.eggs_limit:
             self.eggs_count = eggs_limit
         else:
             self.eggs_count = eggs
 
+            
 class Goose(Bird):
     voice = 'Honk! Honk!'
 
+    
 class Chicken(Bird):
     eggs_limit = 2 # шт.
     voice = 'Cluck! Cluck! Cluck!'
 
+    
 class Duck(Bird):
     voice = 'Quack! Quack!'
 
+    
 class Cow(Animal):
     voice = 'Moooo!'
     milk_limit = 30 #л
+    
     def get_milk(self, milk):
         if milk > self.milk_limit:
             print(f'Было надоено {milk_limit} л. молока ')
@@ -45,13 +52,16 @@ class Cow(Animal):
             self.milk_limit = self.milk_limit - milk
             print(f'Было надоено {milk} л. молока ')
 
+            
 class Goat(Cow):
     voice = 'Baaa!'
     milk_limit = 3 #л
 
+    
 class Sheep(Animal):
     voice = 'Beee!'
     wool_limit = 12 #kg
+    
     def get_wool(self, wool):
         if wool > self.wool_limit:
             print(f'Было сострижено {wool_limit} кг. шерсти ')
