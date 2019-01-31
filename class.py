@@ -1,35 +1,44 @@
-# Задача 1
-class Animal:
-    color = 'black'
-    full_state = 'hungry'
-    voice = 'Oyy'
+from abc import ABC, abstractmethod, abstractproperty
 
+class Animal(ABC):
+    color = 'black'
+    voice = 'Oyy'
+    
+    @abstractproperty
+    def full_state():
+      print('')
+    
     def __init__(self, name, weight):
         self.name = name
         self.weight = weight
 
+    def get_voice(self):
+        print(self.voice)
+    
+    @abstractmethod
     def feed(self):
         print('nyam-nyam')
         self.state = 'full'
-
-    def get_voice(self):
-        print(self.voice)
 
         
 class Bird(Animal):
     eggs_count = 0 # шт.
     eggs_limit = 1 # шт.
+    full_state = 'hungry'
     
     def egg_collection(self, eggs):
         if eggs > self.eggs_limit:
             self.eggs_count = self.eggs_limit
         else:
             self.eggs_count = eggs
-
+    
+    def feed(self):
+        print('nyam-nyam')
+        self.state = 'full'
             
 class Goose(Bird):
     voice = 'Honk! Honk!'
-
+    
     
 class Chicken(Bird):
     eggs_limit = 2 # шт.
@@ -43,6 +52,7 @@ class Duck(Bird):
 class Cow(Animal):
     voice = 'Moooo!'
     milk_limit = 30 #л
+    full_state = 'hungry'
     
     def get_milk(self, milk):
         if milk > self.milk_limit:
@@ -51,7 +61,10 @@ class Cow(Animal):
         else:
             self.milk_limit = self.milk_limit - milk
             print(f'Было надоено {milk} л. молока ')
-
+            
+    def feed(self):
+        print('nyam-nyam')
+        self.state = 'full'
             
 class Goat(Cow):
     voice = 'Baaa!'
@@ -61,6 +74,7 @@ class Goat(Cow):
 class Sheep(Animal):
     voice = 'Beee!'
     wool_limit = 12 #kg
+    full_state = 'hungry'
     
     def get_wool(self, wool):
         if wool > self.wool_limit:
@@ -69,6 +83,10 @@ class Sheep(Animal):
         else:
             self.wool_limit = self.wool_limit - wool
             print(f'Было сострижено {wool} кг. шерсти ')
+    
+    def feed(self):
+        print('nyam-nyam')
+        self.state = 'full'
 
 # Задача 2
 goose_0 = Goose('Серый', 6)
@@ -106,3 +124,9 @@ for animal in list:
         bigger_animal = animal.name
 print(f'Общий вес все животных на ферме составил {weight_of_all} кг.')
 print(f'Самое тяжелое животное : "{bigger_animal}" (вес {max_weight} кг.)')
+
+# Накормим всех животных
+
+for one in list:
+  one.feed()
+  print(one.full_state)
