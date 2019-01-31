@@ -22,7 +22,7 @@ class Bird(Animal):
     
     def egg_collection(self, eggs):
         if eggs > self.eggs_limit:
-            self.eggs_count = eggs_limit
+            self.eggs_count = self.eggs_limit
         else:
             self.eggs_count = eggs
 
