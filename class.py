@@ -3,11 +3,8 @@ from abc import ABC, abstractmethod, abstractproperty
 class Animal(ABC):
     color = 'black'
     voice = 'Oyy'
-    
-    @abstractproperty
-    def full_state():
-      print('')
-    
+    full_state = ''
+  
     def __init__(self, name, weight):
         self.name = name
         self.weight = weight
